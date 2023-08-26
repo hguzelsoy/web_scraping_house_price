@@ -37,14 +37,15 @@ results_house_price <- results_house_price[c(-1),c(-1,-9)]
 
 results_house_price <- results_house_price[-which(
   results_house_price$`Emlak Tipi` %in% 
-    c("Siz de ilanınızın yukarıda yer almasını istiyorsanız tıklayın.",
+    c("delete which rows you don't want to download",
       NA,
       "","Emlak Tipi")),]
 glimpse(results_house_price)
 
+# Remove whatever you want
 results_house_price %<>% 
   mutate(Fiyat = str_remove_all(results_house_price$Fiyat, "TL"))
-
+# combine the data
 combined_results <- rbind(....)
 
 #deleting duplicates
